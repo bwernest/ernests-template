@@ -1,9 +1,13 @@
 """___Modules___________________________________________________________________________________"""
 
 # Project
+from .asserts import *
+from .fixtures import *
+from ..utils.errors import *
 from ..utils.settings import Settings
 
 # Python
+import functools
 import os
 import shutil
 from typing import Callable
@@ -12,6 +16,7 @@ from typing import Callable
 
 
 def void(fonction: Callable) -> any:
+    @functools.wraps(fonction)
     def fct(*args, **kwargs) -> any:
         settings = Settings("test")
         paths = settings.paths
