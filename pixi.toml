@@ -31,11 +31,11 @@ testx = "pytest -s -x engine"
 print_test = "pytest -s engine"
 
 # Multi
-coverage = {depends-on = ["cover_get", "cover_show"]}
-perf = {depends-on = ["perf_get", "perf_show"]}
+coverage = {depends-on = ["_cover_get", "_cover_show"]}
+perf = {depends-on = ["_perf_get", "_perf_show"]}
 validate = {depends-on = ["format", "test", "main"]}
 
-cover_get = "coverage run -m pytest engine"
-cover_show = "coverage html"
-perf_get = "python main_perf.py"
-perf_show = "snakeviz profil.prof"
+_cover_get = "coverage run -m pytest engine"
+_cover_show = "coverage html"
+_perf_get = "python -m cProfile -o profil.prof main_perf.py"
+_perf_show = "snakeviz profil.prof"
