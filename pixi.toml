@@ -26,7 +26,7 @@ main = "python main.py"
 config = "python config.py"
 format = "autopep8 --in-place --recursive ./"
 go = "python main_dev.py"
-test = "pytest engine"
+test = "pytest engine/test"
 testx = "pytest -s -x engine"
 print_test = "pytest -s engine"
 
@@ -35,7 +35,7 @@ coverage = {depends-on = ["_cover_get", "_cover_show"]}
 perf = {depends-on = ["_perf_get", "_perf_show"]}
 validate = {depends-on = ["format", "test", "main"]}
 
-_cover_get = "coverage run -m pytest engine"
+_cover_get = "coverage run --source=engine/test -m pytest"
 _cover_show = "coverage html"
 _perf_get = "python -m cProfile -o profil.prof main_perf.py"
 _perf_show = "snakeviz profil.prof"
