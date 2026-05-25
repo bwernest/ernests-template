@@ -5,3 +5,4 @@ pixi.lock
 *.pyc
 .coverage
 profil.prof
+.vscode/settings.json

@@ -1,12 +1,12 @@
 """___Modules___________________________________________________________________________________"""
 
 # Project
+from . import *
 from .settings import Settings
 
 # Python
 import os
 import datetime
-from typing import Dict, List
 
 """___Classes___________________________________________________________________________________"""
 
@@ -34,7 +34,7 @@ class ToolBox(Settings):
     def export_txt(self, txt: str, title: str = "DebugExport") -> None:
         self.write_txt(f"{title}", txt)
 
-    def print_info(self, text: str, object: any, option: str = "") -> None:
+    def print_info(self, text: str, object: Any, option: str = "") -> None:
         """
         Print function. Option available : liste -> displays object line by line.
         """
@@ -54,7 +54,7 @@ class ToolBox(Settings):
         elif option == "token":
             self.print_info(text, f"{object.type} / {object.value}")
 
-    def add_log(self, text: str, objects: Dict[str, any] = {}, time: bool = True, disp: bool = True) -> None:
+    def add_log(self, text: str, objects: Dict[str, Any] = {}, time: bool = True, disp: bool = True) -> None:
         if objects == {}:
             log = f"{text}"
         else:

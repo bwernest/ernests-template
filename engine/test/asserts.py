@@ -1,5 +1,8 @@
 """___Modules___________________________________________________________________________________"""
 
+# Project
+from ..utils import *
+
 # Python
 from numpy import ndarray, round
 from typing import Any, Dict, Iterable, List, Tuple
@@ -15,7 +18,7 @@ class Assert():
             error_msg += f"argument {a + 1} :\n{arg}\n"
         return error_msg
 
-    def assertEqual(self, a: Any, b: Any, rounder: int = None):
+    def assertEqual(self, a: Any, b: Any, rounder: Optional[int] = None):
         rounder = 64 if rounder is None else rounder
         assert_method = {
             int: self.assertValueEqual,
@@ -59,10 +62,10 @@ class Assert():
     def assertFalse(self, _bool: bool) -> None:
         assert not _bool
 
-    def assertIsInstance(self, obj: Any, _class: object) -> None:
+    def assertIsInstance(self, obj: Any, _class: type) -> None:
         assert isinstance(obj, _class)
 
-    def assertIsNotInstance(self, obj: Any, _class: object) -> None:
+    def assertIsNotInstance(self, obj: Any, _class: type) -> None:
         assert not isinstance(obj, _class)
 
     def assertIn(self, obj: Any, iterable: Iterable) -> None:
